@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'todos',
+    'django_filters',
     'authentication'
 ]
 
@@ -110,9 +111,10 @@ REST_FRAMEWORK = {
         'authentication.jwt.JWTAuthentication',
         # You can add other authentication classes here if needed
     ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
+    'DEFAULT_PAGINATION_CLASS':"rest_framework.pagination.LimitOffsetPagination"
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ], 
 }
 
 

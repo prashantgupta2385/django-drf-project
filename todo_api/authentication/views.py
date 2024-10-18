@@ -19,7 +19,8 @@ class AuthuserAPIView(GenericAPIView):
 
 class RegisterAPIView(GenericAPIView):
     serializer_class=RegisterSerializers
-    permission_classes = [permissions.AllowAny]
+    authentication_classes=[]
+    # permission_classes = [permissions.AllowAny]
     def post(self,request):
         serializer=self.serializer_class(data=request.data)
 
@@ -32,7 +33,8 @@ class RegisterAPIView(GenericAPIView):
 
 class LoginAPIView(GenericAPIView):
     serializer_class=LoginSerializer
-    permission_classes = [permissions.AllowAny]
+    # permission_classes = [permissions.AllowAny]
+    authentication_classes=[]
     def post(self,request):
         email=request.data.get('email',None)
         password=request.data.get('password',None)
