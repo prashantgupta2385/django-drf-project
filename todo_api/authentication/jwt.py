@@ -23,7 +23,7 @@ class JWTAuthentication(BaseAuthentication):
             username=payload['username']
 
             user=User.objects.get(username=username)
-
+            
             return (user,token)
         except jwt.ExpiredSignatureError as ex:
             raise exceptions.AuthenticationFailed('token is expired login again')
